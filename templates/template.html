@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Movie Hacker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style type="text/css">
-      .container {
-        max-width: 90%;
-        padding-top: 100px;
-      }
-      table {
-        border: 1px solid #ccc;
-      }
-      th {
-        padding: 5px;
-        font-size: 1.2em;
-      }
-      tr {
-        border: 1px solid #ccc;
-      }
-      td {
-        padding: 5px;
-      }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>IMDb Link</th>
-            <th>IMDb Rating</th>
-            <th>Year</th>
-            <th>Netflix Link</th>
-            <th>Directors</th>
-            <th>Genres</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for movie in results %}
-        <tr>
-            <td>{{movie.Title}}</td>
-            <td><a href="{{movie.URL}}" target="_blank">{{movie.Title}}</a></td>
-            <td>{{movie.IMDb_rating}}</td>
-            <td>{{movie.Year}}</td>
-            <td><a href="https://www.netflix.com/search?q={{movie.Title}}&suggestionId=0" target="_blank">Netflix Link</a></td>
-            <td>{{movie.Directors}}</td>
-            <td>{{movie.Genres}}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-
-    </table>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">IMDb List Hacker</div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>IMDb Link</th>
+                <th>IMDb Rating</th>
+                <th>Year</th>
+                <th>Netflix Link</th>
+                <th>Directors</th>
+                <th>Genres</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for movie in results %}
+            <tr>
+                <td>{{movie.Title}}</td>
+                <td><a href="{{movie.URL}}" target="_blank">
+                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                </a></td>
+                <td>{{movie.IMDb_rating}}</td>
+                <td>{{movie.Year}}</td>
+                <td><a href="https://www.netflix.com/search?q={{movie.Title}}&suggestionId=0" target="_blank">
+                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                </a></td>
+                <td>{{movie.Directors}}</td>
+                <td>{{movie.Genres}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  </body>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
 </html>
